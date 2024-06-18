@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use App\Models\Quiz;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Faker\Generator as Faker;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Quiz>
@@ -18,8 +19,9 @@ class QuizFactory extends Factory
      */
     public function definition(): array
     {
+        $faker = \Faker\Factory::create('ja_JP');
         return [
-            'name' => fake()->text(50),
+            'name' => fake()->text(10),
         ];
     }
 }

@@ -13,6 +13,11 @@ class Ppchoice extends Model
 
     protected $table = 'ppchoices';
 
+    /**
+     * Ppquestionモデルとのリレーション
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function ppquestion()
     {
         return $this->belongsTo(Ppquestion::class);

@@ -11,7 +11,6 @@ return new class extends Migration
      */
     public function up(): void
     {
-        if (!Schema::hasTable('pproduces')) {
         Schema::create('ppquestions', function (Blueprint $table) {
             $table->id();
             $table->string('from');
@@ -20,9 +19,9 @@ return new class extends Migration
             $table->unsignedBigInteger('pproduce_id');
             $table->timestamps();
 
-            $table->foreign('pproduce_id')->references('id')->on('pproduces')->onDelete('cascade');
-            });
-        }
+            // 外部キー制約の追加
+            $table->foreign('pproduce_id')->references('id')->on('ppproduces')->onDelete('cascade');
+        });
     }
 
     /**
@@ -30,9 +29,11 @@ return new class extends Migration
      */
     public function down(): void
     {
+        Schema::table('ppquestions', function (Blueprint $table) {
+            // 外部キー制約を削除
+            $table->dropForeign(['pproduce_id']);
+        });
+
         Schema::dropIfExists('ppquestions');
-        // Schema::table('ppchoices', function (Blueprint $table) {
-        //     $table->dropForeign('ppchoices_ppquestion_id_foreign');
-        // });
     }
 };

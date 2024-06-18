@@ -18,6 +18,7 @@ return new class extends Migration
             $table->boolean('is_correct');
             $table->timestamps();
 
+            // 外部キー制約の追加
             $table->foreign('ppquestion_id')->references('id')->on('ppquestions')->onDelete('cascade');
         });
     }
@@ -27,6 +28,11 @@ return new class extends Migration
      */
     public function down(): void
     {
+        Schema::table('ppchoices', function (Blueprint $table) {
+            // 外部キー制約を削除
+            $table->dropForeign(['ppquestion_id']);
+        });
+
         Schema::dropIfExists('ppchoices');
     }
 };

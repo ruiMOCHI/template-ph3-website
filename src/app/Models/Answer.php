@@ -9,7 +9,7 @@ class Answer extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['question_id', 'text', 'is_correct', 'question_id'];
+    protected $fillable = ['question_id', 'text', 'is_correct'];//bladeでの出力時にカラム名に注意//
 
     protected $table = 'choices';
 

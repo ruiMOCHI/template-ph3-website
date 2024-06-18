@@ -15,12 +15,33 @@
     @endforeach
     @foreach($questions as $question)
     <p>
-        {{$question->name}}
+        {{$question->text}}
     </p>
     @endforeach
     @foreach($choices as $choice)
     <p>
-        {{$choice->name}}
+        {{$choice->text}}
+    </p>
+    @endforeach
+    @foreach($pproduces as $pproduce)
+    <p>
+        {{$pproduce->name}}
+    </p>
+    @endforeach
+    @foreach($ppquestions as $ppquestion)
+    <p>
+        {{$ppquestion->from}}
+    </p>
+    <p>
+        {{$ppquestion->university}}
+    </p>
+    <p>
+        {{$ppquestion->animal}}
+    </p>
+    @endforeach
+    @foreach($ppchoices as $ppchoice)
+    <p>
+        {{$ppchoice->text}}
     </p>
     @endforeach
 </body>

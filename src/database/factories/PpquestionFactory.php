@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use App\Models\Ppquestion;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Faker\Generator as Faker;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Ppquestion>
@@ -18,6 +19,7 @@ class PpquestionFactory extends Factory
      */
     public function definition(): array
     {
+        $faker = \Faker\Factory::create('ja_JP');
         return [
             'from' => fake()->text(50),
             'university' => fake()->text(50),

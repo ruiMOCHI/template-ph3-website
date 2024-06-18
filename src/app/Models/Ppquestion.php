@@ -17,4 +17,8 @@ class Ppquestion extends Model
     {
         return $this->belongsTo(Pproduce::class);
     }
+    public function ppchoice()
+    {
+        return $this->hasMany(Ppchoice::class);
+    }
 }

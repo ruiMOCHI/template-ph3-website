@@ -34,9 +34,5 @@ return new class extends Migration
         });
 
         Schema::dropIfExists('questions');
-
-        // Schema::table('choices', function (Blueprint $table) {
-        //     $table->dropForeign('choices_question_id_foreign');
-        // });
     }
 };

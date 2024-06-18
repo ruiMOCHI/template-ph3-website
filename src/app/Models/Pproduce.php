@@ -12,4 +12,9 @@ class Pproduce extends Model
     protected $fillable = ['name'];
 
     protected $table = 'pproduces';
+
+    public function ppquestion()
+    {
+        return $this->hasMany(Ppquestion::class);
+    }
 }

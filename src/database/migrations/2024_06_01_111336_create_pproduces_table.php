@@ -11,18 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        // Schema::create('pproduces', function (Blueprint $table) {
-        //     $table->id();
-        //     $table->string('name')->comment('カテゴライズしたクイズ名 ex.) 自己紹介クイズ');
-        //     $table->timestamps();
-        // });
-        if (!Schema::hasTable('pproduces')) {
             Schema::create('pproduces', function (Blueprint $table) {
                 $table->id();
                 $table->string('name')->comment('カテゴライズしたクイズ名 ex.) 自己紹介クイズ');
                 $table->timestamps();
             });
-        }
     }
 
 
@@ -32,8 +25,5 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('pproduces');
-        // Schema::table('ppquestions', function (Blueprint $table) {
-        //     $table->dropForeign('ppquestions_pproduce_id_foreign');
-        // });
     }
 };

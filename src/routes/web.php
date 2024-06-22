@@ -33,8 +33,8 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::get('/user', [UserController::class, 'index']);
-Route::get('/posseWebsite', [PosseWebsiteController::class, 'index']); //'/posseWebsite'は極論適当な名前でも大丈夫。しかし、ブラウザのURLは手動で変えなければならない。l6と同じ名前
-Route::get('/quizzes/1', [QuizController::class, 'index']);
-Route::get('/pproduce', [PproduceController::class, 'index']);
+Route::get('/posseWebsite', [PosseWebsiteController::class, 'index'])->name('posseweb'); //'/posseWebsite'は極論適当な名前でも大丈夫。しかし、ブラウザのURLは手動で変えなければならない。l6と同じ名前
+//Route::get('/quizzes/1', [QuizController::class, 'index'])->name('quiz');
+Route::get('/quizzes/{id}', [QuizController::class, 'show'])->name('quiz.show');
 
 require __DIR__.'/auth.php';

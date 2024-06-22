@@ -14,13 +14,11 @@ return new class extends Migration
         Schema::create('ppquestions', function (Blueprint $table) {
             $table->id();
             $table->string('from');
-            $table->string('university');
-            $table->string('animal');
             $table->unsignedBigInteger('pproduce_id');
             $table->timestamps();
 
             // 外部キー制約の追加
-            $table->foreign('pproduce_id')->references('id')->on('ppproduces')->onDelete('cascade');
+            $table->foreign('pproduce_id')->references('id')->on('pproduces')->onDelete('cascade'); //スペルミス
         });
     }
 
@@ -31,7 +29,7 @@ return new class extends Migration
     {
         Schema::table('ppquestions', function (Blueprint $table) {
             // 外部キー制約を削除
-            $table->dropForeign(['pproduce_id']);
+            $table->dropForeign('pproduce_id');
         });
 
         Schema::dropIfExists('ppquestions');

@@ -13,7 +13,16 @@ class Quiz extends Model
 
     protected $table = 'quizzes';
 
-    public function question()
+    // public function question()
+    // {
+    //     return $this->hasMany(Question::class);
+    // }
+    /**
+     * 回答とのリレーション
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function questions()
     {
         return $this->hasMany(Question::class);
     }

@@ -30,7 +30,7 @@ return new class extends Migration
     {
         Schema::table('ppchoices', function (Blueprint $table) {
             // 外部キー制約を削除
-            $table->dropForeign(['ppquestion_id']);
+            $table->dropForeign('ppquestion_id');
         });
 
         Schema::dropIfExists('ppchoices');

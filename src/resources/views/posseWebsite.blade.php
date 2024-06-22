@@ -39,6 +39,9 @@
           <li class="header-navItem">
             <a href="#daily" class="header-navLink">日常生活</a>
           </li>
+          <li class="header-navItem">
+            <a href="{{ route('quiz') }}" class="header-navLink">クイズ</a> <!--- ->name('')でweb.phpに書いたものを入れる-->
+          </li>
         </ul>
         <path id="a">
           <path d="m0 .693604h14v14h-14z" />

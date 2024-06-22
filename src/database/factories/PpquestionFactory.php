@@ -21,9 +21,7 @@ class PpquestionFactory extends Factory
     {
         $faker = \Faker\Factory::create('ja_JP');
         return [
-            'from' => fake()->text(50),
-            'university' => fake()->text(50),
-            'animal' => fake()->text(50),
+            'from' => fake()->realText(10),
             'pproduce_id' => \App\Models\Pproduce::factory(),
         ];
     }

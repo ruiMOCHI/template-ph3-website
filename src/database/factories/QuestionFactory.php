@@ -22,9 +22,9 @@ class QuestionFactory extends Factory
     {
         $faker = \Faker\Factory::create('ja_JP');
         return [
-            'image' => fake()->text(50),
-            'text' => fake()->text(50),
-            'supplement' => fake()->text(50),
+            'image' => fake()->text(10),
+            'text' => fake()->realText(10),
+            'supplement' => fake()->realText(10),
             'quiz_id' => \App\Models\Quiz::factory(),
         ];
     }

@@ -17,4 +17,13 @@ class Pproduce extends Model
     {
         return $this->hasMany(Ppquestion::class);
     }
+    /**
+     * 回答とのリレーション
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function ppquestions()
+    {
+        return $this->hasMany(Ppquestion::class);
+    }
 }

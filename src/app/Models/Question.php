@@ -1,28 +1,5 @@
 <?php
 
-// namespace App\Models;
-
-// use Illuminate\Database\Eloquent\Factories\HasFactory;
-// use Illuminate\Database\Eloquent\Model;
-
-// class Question extends Model
-// {
-//     use HasFactory;
-
-//     protected $fillable = ['image', 'text', 'supplement', 'quiz_id'];
-
-//     protected $table = 'questions';
-
-//     public function quiz()
-//     {
-//         return $this->belongsTo(Quiz::class);
-//     }
-//     public function answer()
-//     {
-//         return $this->hasMany(Answer::class);
-//     }
-// }
-
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -53,9 +30,9 @@ class Question extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function answers()
+    public function choices()
     {
-        return $this->hasMany(Answer::class);
+        return $this->hasMany(Choice::class);
     }
 }
 

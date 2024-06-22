@@ -21,7 +21,7 @@ class PproduceFactory extends Factory
     {
         $faker = \Faker\Factory::create('ja_JP');
         return [
-            'name' => fake()->text(10),
+            'name' => fake()->realText(10),
         ];
     }
 }

@@ -9,15 +9,26 @@ class Ppquestion extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['from', 'university', 'animal', 'pproduce_id'];
+    protected $fillable = ['from', 'pproduce_id'];
 
     protected $table = 'ppquestions';
 
+    /**
+     * クイズとのリレーション
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function pproduce()
     {
         return $this->belongsTo(Pproduce::class);
     }
-    public function ppchoice()
+
+    /**
+     * 回答とのリレーション
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function ppchoices()
     {
         return $this->hasMany(Ppchoice::class);
     }

@@ -20,10 +20,11 @@ class PpchoiceFactory extends Factory
     public function definition(): array
     {
         $faker = \Faker\Factory::create('ja_JP');
+
         return [
-            'text' => fake()->text(10),
+            'text' => fake()->realText(10),
             'is_correct' => fake()->boolean(),
-            'ppquestion_id' => \App\Models\Ppquestion::factory(), // 既存のQuestionのIDを指定
+            'ppquestion_id' => \App\Models\Ppquestion::factory(),
         ];
     }
 }

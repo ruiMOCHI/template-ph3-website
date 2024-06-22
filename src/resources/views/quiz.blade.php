@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,43 +8,53 @@
 </head>
 
 <x-app-layout>
-<body>
-    @foreach($quizzes as $quiz)
-    <p>
-        {{$quiz->name}}
-    </p>
-    @endforeach
-    @foreach($questions as $question)
-    <p>
-        {{$question->text}}
-    </p>
-    @endforeach
-    @foreach($choices as $choice)
-    <p>
-        {{$choice->text}}
-    </p>
-    @endforeach
-    @foreach($pproduces as $pproduce)
-    <p>
-        {{$pproduce->name}}
-    </p>
-    @endforeach
-    @foreach($ppquestions as $ppquestion)
-    <p>
-        {{$ppquestion->from}}
-    </p>
-    <p>
-        {{$ppquestion->university}}
-    </p>
-    <p>
-        {{$ppquestion->animal}}
-    </p>
-    @endforeach
-    @foreach($ppchoices as $ppchoice)
-    <p>
-        {{$ppchoice->text}}
-    </p>
-    @endforeach
-</body>
+    <body>
+        @if (isset($quizzes))
+        <h2>Quizzes</h2>
+            @foreach ($quizzes as $quiz)
+                <p>
+                    {{ $quiz->name }}
+                </p>
+            @endforeach
+        @endif
+
+        @if (isset($questions))
+        <h2>Questions</h2>
+            @foreach ($questions as $question)
+                <div>
+                    <p>{{ $question->text }}</p>
+                    <ul>
+                        @foreach ($question->choices as $choice)
+                            <li>{{ $choice->text }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endforeach
+        @endif
+
+        @if (isset($pproduces))
+        <h2>Produces</h2>
+            @foreach ($pproduces as $pproduce)
+                <p>
+                    {{ $pproduce->name }}
+                </p>
+            @endforeach
+        @endif
+
+        @if (isset($ppquestions))
+        <h2>Produce Questions</h2>
+            @foreach ($ppquestions as $ppquestion)
+                <div>
+                    <p>{{ $ppquestion->from }}</p>
+                    <ul>
+                        @foreach ($ppquestion->ppchoices as $ppchoice)
+                            <li>{{ $ppchoice->text }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endforeach
+        @endif
+    </body>
 </x-app-layout>
+
 </html>

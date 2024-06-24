@@ -14,7 +14,8 @@ use Illuminate\Http\Request;
 class QuizController extends Controller
 {
 
-    public function index() {
+    public function index()
+    {
         $quizzes = Quiz::all();
         $questions = Question::with('choices')->get();
         $questions = Question::all();
@@ -27,11 +28,13 @@ class QuizController extends Controller
         return view('quiz', compact('quizzes', 'questions', 'pproduces', 'ppquestions'));
     }
 
-    public function show($id) {
+    public function show($id)
+    {
         // クイズが存在する場合
         $quiz = Quiz::find($id);
         if ($quiz) {
-            $quizzes = Quiz::all();
+            // $quizzesはこの後利用しないので、コメントアウト
+            // $quizzes = Quiz::all();
             $questions = Question::where('quiz_id', $id)->with('choices')->get();
             return view('quiz', compact('quiz', 'questions'));
         }
@@ -43,7 +46,7 @@ class QuizController extends Controller
             $ppquestions = Ppquestion::where('pproduce_id', $id)->with('ppchoices')->get();
             return view('quiz', compact('pproduces', 'ppquestions'));
         }
-// どちらも存在しない場合は404エラー
-abort(404);
-}
+        // どちらも存在しない場合は404エラー
+        abort(404);
+    }
 }

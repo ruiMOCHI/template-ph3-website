@@ -10,19 +10,25 @@
 <x-app-layout>
     <body>
         @if (isset($quizzes))
-        <h2>Quizzes</h2>
+            <h2 style="font-weight: bold;">Quizzes</h2>
             @foreach ($quizzes as $quiz)
                 <p>
                     {{ $quiz->name }}
                 </p>
             @endforeach
         @endif
+        @if (isset($quiz))
+            <h2 style="font-weight: bold;">Quiz</h2>
+            <p>
+                {{ $quiz->name }}
+            </p>
+        @endif
 
         @if (isset($questions))
-        <h2>Questions</h2>
+            <h2 style="font-weight: bold;">Questions</h2>
             @foreach ($questions as $question)
-                <div>
-                    <p>{{ $question->text }}</p>
+                <div style="padding: 12px">
+                    <p style="color: red;">{{ $question->text }}</p>
                     <ul>
                         @foreach ($question->choices as $choice)
                             <li>{{ $choice->text }}</li>
@@ -33,7 +39,7 @@
         @endif
 
         @if (isset($pproduces))
-        <h2>Produces</h2>
+            <h2 style="font-weight: bold;">Produces</h2>
             @foreach ($pproduces as $pproduce)
                 <p>
                     {{ $pproduce->name }}
@@ -42,7 +48,7 @@
         @endif
 
         @if (isset($ppquestions))
-        <h2>Produce Questions</h2>
+            <h2 style="font-weight: bold;">Produce Questions</h2>
             @foreach ($ppquestions as $ppquestion)
                 <div>
                     <p>{{ $ppquestion->from }}</p>
